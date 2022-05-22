@@ -220,6 +220,23 @@ class MemsState{
         
     }
     
+    func storeSensorBias(){
+        
+        for i in 0...2{
+            if(self.staticCnt == 0 ){
+                self.accBiasDouble[i] = self.accAvgDouble[i]
+                self.gyroBiasDouble[i] = self.gyroAvgDouble[i]
+            }
+            else{
+                self.accBiasDouble[i] = 0.8 * self.accBiasDouble[i] + 0.2 * self.accAvgDouble[i]
+                self.gyroBiasDouble[i] = 0.8 * self.gyroAvgDouble[i] + 0.2 * self.gyroAvgDouble[i]
+            }
+        }
+        self.staticCnt += 1
+        self.computeAttitude()
+        
+    }
+    
     func accAvgVarCalulate(){
         let cnt = accCnt
         var accSum : accXYZ = accXYZ(xyz: [0,0,0], timeStamp: 0)

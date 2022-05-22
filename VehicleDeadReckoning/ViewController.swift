@@ -131,9 +131,6 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
         }
     }
     
-    
-    
-    
     func outputAccelerationData(_ acceleration: CMAcceleration , timeStamp : TimeInterval)
     {
         //lock.lock(); defer {lock.unlock()}
@@ -202,20 +199,9 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
                 
                 memsState.checkStaticDetection(accThreshold: 0.02,gyroThreshold: 00002)
                 
-                if(memsState.staticDetectionStatus == MemsState.STATIC_STATUS.STATIC) { // static case, then calculate and store the each bias.
-                    for i in 0...2{
-                        if(memsState.staticCnt == 0 ){
-                            memsState!.accBiasDouble[i] = memsState!.accAvgDouble[i]
-                            memsState!.gyroBiasDouble[i] = memsState!.gyroAvgDouble[i]
-                        }
-                        else{
-                            memsState!.accBiasDouble[i] = 0.8 * memsState!.accBiasDouble[i] + 0.2 * memsState!.accAvgDouble[i]
-                            memsState!.gyroBiasDouble[i] = 0.8 * memsState!.gyroAvgDouble[i] + 0.2 * memsState!.gyroAvgDouble[i]
-                        }
-                    }
-                    memsState.staticCnt += 1
-                    memsState.computeAttitude()
-                    
+                if(memsState.staticDetectionStatus == MemsState.STATIC_STATUS.STATIC) {
+                    // static case, then calculate and store the each bias.
+                    memsState.storeSensorBias()
                 }
                 else{
                     updateAttitude()
@@ -229,8 +215,6 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
                     memsState.computeAccXYZ()
                 }
                 
-
-                
                 if(abs(headingRate * r2d) < 0.5)
                 {
                     // 1) Pile the value acceleration of each axis.
@@ -238,8 +222,6 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
                     // 3) it could be yaw(misalignment) value.
                 }
 
-                
-                
                 for i in 0...2{
                     accShow[i] = round(memsState!.accAvgDouble[i] * 100) / 100
                     if(memsState.staticCnt > 5 ){
