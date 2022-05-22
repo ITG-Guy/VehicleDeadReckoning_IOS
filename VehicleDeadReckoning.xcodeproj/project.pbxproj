@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E072F6B728388815000C4CF0 /* memsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072F6B628388815000C4CF0 /* memsState.swift */; };
+		E072F6B928394A75000C4CF0 /* MathUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072F6B828394A75000C4CF0 /* MathUtil.swift */; };
+		E072F6BB283A07A6000C4CF0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = E072F6BA283A07A6000C4CF0 /* Logger.swift */; };
 		E0D14A1C2781F18600A13A54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D14A1B2781F18600A13A54 /* AppDelegate.swift */; };
 		E0D14A1E2781F18600A13A54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D14A1D2781F18600A13A54 /* SceneDelegate.swift */; };
 		E0D14A202781F18600A13A54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D14A1F2781F18600A13A54 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		E072F6B628388815000C4CF0 /* memsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memsState.swift; sourceTree = "<group>"; };
+		E072F6B828394A75000C4CF0 /* MathUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathUtil.swift; sourceTree = "<group>"; };
+		E072F6BA283A07A6000C4CF0 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		E0D14A182781F18600A13A54 /* VehicleDeadReckoning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VehicleDeadReckoning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D14A1B2781F18600A13A54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0D14A1D2781F18600A13A54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 				E0D14A262781F18700A13A54 /* LaunchScreen.storyboard */,
 				E0D14A292781F18700A13A54 /* Info.plist */,
 				E072F6B628388815000C4CF0 /* memsState.swift */,
+				E072F6B828394A75000C4CF0 /* MathUtil.swift */,
+				E072F6BA283A07A6000C4CF0 /* Logger.swift */,
 			);
 			path = VehicleDeadReckoning;
 			sourceTree = "<group>";
@@ -262,7 +268,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0D14A202781F18600A13A54 /* ViewController.swift in Sources */,
+				E072F6BB283A07A6000C4CF0 /* Logger.swift in Sources */,
 				E072F6B728388815000C4CF0 /* memsState.swift in Sources */,
+				E072F6B928394A75000C4CF0 /* MathUtil.swift in Sources */,
 				E0D14A1C2781F18600A13A54 /* AppDelegate.swift in Sources */,
 				E0D14A1E2781F18600A13A54 /* SceneDelegate.swift in Sources */,
 			);

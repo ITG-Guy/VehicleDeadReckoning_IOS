@@ -139,12 +139,6 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
 
     }
     
-    
-    
-    
-    
-    
-    
     func updateAttitude(){
         var gyro :[Double] = [0,0,0]
         for i in 0...2{
@@ -159,9 +153,9 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
     {
         //lock.lock(); defer {lock.unlock()}
         // CMAcceleration has G unit, G is 9.81m/s
-        let accX = acceleration.x * 9.81
-        let accY = acceleration.y * 9.81
-        let accZ = acceleration.z * 9.81
+        let accX = acceleration.y * 9.81
+        let accY = acceleration.x * 9.81
+        let accZ = -acceleration.z * 9.81
         
         memsState.accArray.append(MemsState.accXYZ(xyz: [accX,accY,accZ], timeStamp: timeStamp))
         
@@ -170,9 +164,9 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
     func outputGyroData( gyro : CMRotationRate, timeStamp : TimeInterval)
     {
         //lock.lock(); defer {lock.unlock()}
-        let gyroX = gyro.x
-        let gyroY = gyro.y
-        let gyroZ = gyro.z
+        let gyroX = gyro.y
+        let gyroY = gyro.x
+        let gyroZ = -gyro.z
         
         memsState.gyroArray.append(MemsState.gyroXYZ(xyz: [gyroX,gyroY,gyroZ], timeStamp: timeStamp))
     }
