@@ -124,12 +124,7 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
 
     }
     
-    func updateAttitude(){
-        var gyro :[Double] = [0,0,0]
-        for i in 0...2{
-            gyro[i] = memsState!.gyroAvgDouble[i] - memsState!.gyroBiasDouble[i]
-        }
-    }
+    
     
     func outputAccelerationData(_ acceleration: CMAcceleration , timeStamp : TimeInterval)
     {
@@ -189,10 +184,9 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
                 var gyroShow : [Double] = [0,0,0]
                 var gyroVarShow : [Double] = [0,0,0]
                 
-                let accArrayCnt = memsState!.accArray.count/4
-                let gyroArrayCnt = memsState!.gyroArray.count/4
+                let accArrayCnt = memsState.accCnt
+                let gyroArrayCnt = memsState.gyroCnt
                 
-//                loggingAccGyro()
                 
                 memsState.accAvgVarCalulate()
                 memsState.gyroAvgVarCaluate()
@@ -204,7 +198,7 @@ class ViewController: UIViewController , CLLocationManagerDelegate{
                     memsState.storeSensorBias()
                 }
                 else{
-                    updateAttitude()
+                    memsState.updateAttitude()
                 }
                 
                 //                computeAttitude()

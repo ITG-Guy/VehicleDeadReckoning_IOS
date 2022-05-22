@@ -103,6 +103,13 @@ class MemsState{
         }
     }
     
+    func updateAttitude(){
+        var gyro :[Double] = [0,0,0]
+        for i in 0...2{
+            gyro[i] = self.gyroAvgDouble[i] - self.gyroBiasDouble[i]
+        }
+    }
+    
     func computeAccXYZ(){
         var acc :[Double] = [0,0,0]
         for i in 0...2{
@@ -176,7 +183,6 @@ class MemsState{
        
 //        let accResetThreshold = 0.15
 //        let gyroResetThreshold = 0.15
-
         
         if(
             (self.accVarDouble[0] < accThreshold
